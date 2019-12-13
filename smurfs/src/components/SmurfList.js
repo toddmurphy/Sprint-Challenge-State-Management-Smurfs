@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react';
-import {connect} from 'react-redux';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import SmurfCard from './SmurfCard';
 import Loader from 'react-loader-spinner';
 
@@ -16,20 +16,27 @@ const SmurfList = (props) => {
     }, [props])
 
 
-    return(
+    return (
         <div>
-            <h1>{props.greeting}</h1>
+            {/* <h1>{props.greeting}</h1> */}
+            {/* {props.isFetching &&
+            <Loader
+                type="Puff"
+                color="#00BFFF"
+                height={100}
+                width={100}
+            />} */}
             {props.smurfs.map(smurf => {
-                return <SmurfCard key={smurf.id} smurf={smurf} />
+            return <SmurfCard key={smurf.id} smurf={smurf} /> 
             })}
         </div>
-    )    
+    )
 }
 
 //add 'mapStateToProps'
 const mapStateToProps = (state) => {
     //mimic 'initialState' structure for state
-    return{
+    return {
         // greeting: state.greeting,
         isFetching: state.isFetching,
         error: state.error,
@@ -39,4 +46,4 @@ const mapStateToProps = (state) => {
 
 
 //add connect --> make sure to add 'getSmurfData' to {} so it gets passed to props
-export default connect(mapStateToProps, {getSmurfData, addSmurf})(SmurfList);
+export default connect(mapStateToProps, { getSmurfData, addSmurf })(SmurfList);
