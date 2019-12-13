@@ -19,7 +19,6 @@ const CardContainer = styled.div`
 `
 
 const SmurfCard = (props) => {
-    console.log(props)
     const { name, age, height } = props.smurf;
     return (
         <CardWrapper>

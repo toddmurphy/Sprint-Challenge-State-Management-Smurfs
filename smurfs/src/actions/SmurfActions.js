@@ -10,11 +10,11 @@ export const FETCH_SMURF_FAILURE = 'FETCH_SMURF_FAILURE';
 // get smurf data from localhost api --> http://localhost:3333/smurfs
 
 const getSmurfData = () => dispatch => {
-    console.log('in getSmurf data')
+    // console.log('in getSmurf data')
     dispatch({type: FETCH_SMURF_START});
     axios.get('http://localhost:3333/smurfs')
         .then(response => {
-            console.log(response)
+            // console.log(response)
             dispatch({type: FETCH_SMURF_SUCCESS, payload: response.data})
         })
         .catch(error => {
@@ -33,7 +33,7 @@ export const ADD_SMURF_FAILURE = 'ADD_SMURF_FAILURE';
 
 // post smurf data to same location we get data --> localhost api --> http://localhost:3333/smurfs
 export const addSmurf = (smurfs) => dispatch => {
-    console.log('in addSmurf')
+    // console.log('in addSmurf')
     dispatch({type: FETCH_SMURF_START});
     axios.post('http://localhost:3333/smurfs', smurfs)
         .then(response => {

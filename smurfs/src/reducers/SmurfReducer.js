@@ -18,14 +18,12 @@ const initialState = {
 const SmurfReducer = (state = initialState, action) => {
     switch(action.type) {
         case FETCH_SMURF_START:
-            console.log('in SMURF START')
             return{
                 ...state,
                 isFetching: true,
                 error: ''
             }
         case FETCH_SMURF_SUCCESS:
-            console.log('in SMURF SUCCESS')
             return{
                 ...state,
                 smurfs: action.payload,
@@ -35,13 +33,11 @@ const SmurfReducer = (state = initialState, action) => {
         case FETCH_SMURF_FAILURE:
             return{
                 ...state,
-                smurfs: false,
                 isFetching: false,
                 error: action.payload
             }
 //add 'addSmurf' here
         case ADD_SMURF_START:
-            console.log('in ADD_SMURF_START')
             return{
                 ...state,
                 isFetching: true,
