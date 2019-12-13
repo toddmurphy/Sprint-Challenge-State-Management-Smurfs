@@ -25,7 +25,7 @@ const TextInput = styled.input`
 `
 
 const ButtonStyle = styled.button`
-    width: 80%;
+    width: 40%;
     height: 50px;
     margin: auto;
     border-radius: 5px;
@@ -76,21 +76,18 @@ const SmurfForm = (props) => {
                     type='text'
                     placeholder='Name'
                     name='name'
-                // value={}
                 onChange={handleInputChange}
                 />
                 <TextInput
                     type='text'
                     placeholder='Age'
                     name='age'
-                // value={}
                 onChange={handleInputChange}
                 />
                 <TextInput
                     type='text'
                     placeholder='Height'
                     name='height'
-                // value={}
                 onChange={handleInputChange}
                 />
                 <ButtonStyle onClick={() => console.log('Add Smurf Button submit click')}  type='submit'>Add smurf</ButtonStyle>
