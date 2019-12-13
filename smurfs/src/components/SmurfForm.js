@@ -15,16 +15,26 @@ import {addSmurf} from '../actions/SmurfActions';
 //   }
 
 const TextInput = styled.input`
-    font-size: 1.4rem;
-    margin: 2% 2%;
-`
-const ButtonStyle = styled.button`
-    background: green;
-    color: #FFF;
-    width: 20%;
-    height: 45px;
+    margin: 1% 3%;
+    height: 40px;
+    width: 100%;
     border-radius: 5px;
-    font-size: 1.4rem;
+    font-size: 1rem;
+    padding: 0 2%;
+    border: 2px solid lightgrey;
+`
+
+const ButtonStyle = styled.button`
+    width: 80%;
+    height: 50px;
+    margin: auto;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    background: #5ccc6e;
+    color: #FFF;
+    margin-top: 3%;
 `
 
 const SmurfForm = (props) => {
@@ -49,11 +59,12 @@ const SmurfForm = (props) => {
     const handleOnSubmit = (event) => {
         event.preventDefault();
         props.addSmurf(newSmurf)
-        setNewSmurf({
-            name: '',
-            age: '',
-            height: ''
-        })
+        // setNewSmurf({
+        //     name: '',
+        //     age: '',
+        //     height: ''
+        // })
+        event.target.reset();
     }
 
     return (
