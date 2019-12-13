@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 //connect
 import {connect} from 'react-redux';
 // {addSmurf} from actions
-import addSmurf from '../actions/SmurfActions';
+import {addSmurf} from '../actions/SmurfActions';
 
 
 //Data format to post smurf --> initial state/data
@@ -15,7 +15,7 @@ import addSmurf from '../actions/SmurfActions';
 
 const SmurfForm = (props) => {
     //need useState to set state and initial data structure
-    const [newSmurf, setNewSmurf] = useState({
+    let [newSmurf, setNewSmurf] = useState({
         name: '',
         age: '',
         height: ''
@@ -65,10 +65,10 @@ const SmurfForm = (props) => {
                     type='text'
                     placeholder='Height'
                     name='height'
-                //value={}
+                // value={}
                 onChange={handleInputChange}
                 />
-                <button>Add smurf</button>
+                <button onClick={() => console.log('Add Smurf Button submit click')}  type='submit'>Add smurf</button>
             </form>
         </div>
     )
