@@ -3,10 +3,13 @@ import {FETCH_SMURF_START,
     FETCH_SMURF_SUCCESS, 
     FETCH_SMURF_FAILURE} from '../actions/SmurfActions';
 
+import {ADD_SMURF_START, 
+    ADD_SMURF_SUCCESS, 
+    ADD_SMURF_FAILURE} from '../actions/SmurfActions'
 
 //setup 'initialState'
 const initialState = {
-    greeting: 'hi, from the smurfs',
+    // greeting: 'hi, from the smurfs',
     isFetching: false,
     error: '',
     smurfs: []
@@ -25,8 +28,23 @@ const SmurfReducer = (state = initialState, action) => {
             return{
                 ...state,
                 smurfs: action.payload,
-                isFetching: false
+                isFetching: false,
+                error: ''
             }
+        case FETCH_SMURF_FAILURE:
+            return{
+                ...state,
+                smurfs: false,
+                isFetching: false,
+                error: action.payload
+            }
+//add 'addSmurf' here
+        case ADD_SMURF_START:
+            return{
+                ...state,
+                
+            }
+
 
         default:
             return state;

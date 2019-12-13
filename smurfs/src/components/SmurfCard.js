@@ -5,7 +5,6 @@ const SmurfCard = (props) => {
     const { name, age, height } = props.smurf;
     return (
         <div>
-            <h4>Individual smurf --> Brainy smurf</h4>
             <p>Name: {name}</p>
             <p>Age: {age}</p>
             <p>Height: {height}</p>

@@ -1,10 +1,12 @@
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import SmurfCard from './SmurfCard';
+import Loader from 'react-loader-spinner';
 
 
 //need to import --> 'getSmurfData' from actions for smurf api data
-import getSmurfData from '../actions/SmurfActions'
+import getSmurfData from '../actions/SmurfActions';
+import addSmurf from '../actions/SmurfActions';
 
 const SmurfList = (props) => {
     console.log('in SmurfList', props)
@@ -16,12 +18,10 @@ const SmurfList = (props) => {
 
     return(
         <div>
-            <h3>Smurf List component --> display smurfs</h3>
             <h1>{props.greeting}</h1>
             {props.smurfs.map(smurf => {
                 return <SmurfCard key={smurf.id} smurf={smurf} />
             })}
-            {/* <SmurfCard /> */}
         </div>
     )    
 }
@@ -30,7 +30,7 @@ const SmurfList = (props) => {
 const mapStateToProps = (state) => {
     //mimic 'initialState' structure for state
     return{
-        greeting: state.greeting,
+        // greeting: state.greeting,
         isFetching: state.isFetching,
         error: state.error,
         smurfs: state.smurfs
@@ -39,4 +39,4 @@ const mapStateToProps = (state) => {
 
 
 //add connect --> make sure to add 'getSmurfData' to {} so it gets passed to props
-export default connect(mapStateToProps, {getSmurfData})(SmurfList);
+export default connect(mapStateToProps, {getSmurfData, addSmurf})(SmurfList);
