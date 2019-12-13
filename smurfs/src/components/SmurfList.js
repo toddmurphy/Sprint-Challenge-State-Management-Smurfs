@@ -4,20 +4,24 @@ import SmurfCard from './SmurfCard';
 
 
 //need to import --> 'getSmurfData' from actions for smurf api data
-
+import getSmurfData from '../actions/SmurfActions'
 
 const SmurfList = (props) => {
-    console.log(props)
+    console.log('in SmurfList', props)
     //setup 'useEffect' to get initial load of state/data
-
+    useEffect(() => {
+        props.getSmurfData();
+    }, [props])
 
 
     return(
         <div>
             <h3>Smurf List component --> display smurfs</h3>
             <h1>{props.greeting}</h1>
-
-            <SmurfCard />
+            {props.smurfs.map(smurf => {
+                return <SmurfCard key={smurf.id} smurf={smurf} />
+            })}
+            {/* <SmurfCard /> */}
         </div>
     )    
 }
@@ -34,5 +38,5 @@ const mapStateToProps = (state) => {
 }
 
 
-//add connect
-export default connect(mapStateToProps, {})(SmurfList);
+//add connect --> make sure to add 'getSmurfData' to {} so it gets passed to props
+export default connect(mapStateToProps, {getSmurfData})(SmurfList);
