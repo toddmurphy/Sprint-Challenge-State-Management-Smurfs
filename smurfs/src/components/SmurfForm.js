@@ -1,47 +1,4 @@
-import React from 'react';
-
-const SmurfForm = () => {
-
-
-
-    //setup 'handleInputChange'
-
-
-
-    //setup 'handleOnSubmit'
-
-
-    return(
-        <div>
-            <h1>Smurf Form Component --> add smurf</h1>
-            <form>
-                <input 
-                    type='text'
-                    placeholder='Name'
-                    name='name'
-                    // value={}
-                    // onChange={}
-                />
-                <input 
-                    type='text'
-                    placeholder='Age'
-                    name='age'
-                    // value={}
-                    // onChange={}
-                />
-                <input 
-                    type='text'
-                    placeholder='Height'
-                    name='height'
-                    //value={}
-                    //onChange={}
-                />
-            </form>
-        </div>
-    )
-}
-
-export default SmurfForm;
+import React, { useState } from 'react';
 
 //Data format to post smurf --> initial state/data
 // {
@@ -49,3 +6,68 @@ export default SmurfForm;
 //     age: 200,
 //     height: '5cm'
 //   }
+
+const SmurfForm = (props) => {
+    //need useState to set state and initial data structure
+    const [newSmurf, setNewSmurf] = useState({
+        name: '',
+        age: '',
+        height: ''
+    })
+
+
+    //setup 'handleInputChange'
+    const handleInputChange = (event) => {
+        setNewSmurf({
+            ...newSmurf,
+            [event.target.name]: event.target.value
+        })
+    }
+
+
+    //setup 'handleOnSubmit'
+    const handleOnSubmit = (event) => {
+        event.preventDefault();
+        props.addSmurf(newSmurf)
+        setNewSmurf({
+            name: '',
+            age: '',
+            height: ''
+        })
+    }
+
+
+    return (
+        <div>
+            <h1>Smurf Form Component --> add smurf</h1>
+            <form  >
+                <input
+                    type='text'
+                    placeholder='Name'
+                    name='name'
+                // value={}
+                // onChange={handleInputChange}
+                />
+                <input
+                    type='text'
+                    placeholder='Age'
+                    name='age'
+                // value={}
+                // onChange={handleInputChange}
+                />
+                <input
+                    type='text'
+                    placeholder='Height'
+                    name='height'
+                //value={}
+                //onChange={handleInputChange}
+                />
+                <button>Add smurf</button>
+            </form>
+        </div>
+    )
+}
+
+//set up 'connect' --> and import 'addSmurf' from actions
+export default SmurfForm;
+
