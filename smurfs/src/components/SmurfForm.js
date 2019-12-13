@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+//need to import --> 
+//connect
+// {addSmurf} from actions
+
 
 //Data format to post smurf --> initial state/data
 // {
@@ -36,11 +40,11 @@ const SmurfForm = (props) => {
         })
     }
 
-
     return (
         <div>
             <h1>Smurf Form Component --> add smurf</h1>
-            <form  >
+            {/* add 'handleOnSubmit' to 'form' */}
+            <form>
                 <input
                     type='text'
                     placeholder='Name'
