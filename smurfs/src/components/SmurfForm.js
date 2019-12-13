@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 //need to import --> 
 //connect
+import {connect} from 'react-redux';
 // {addSmurf} from actions
+import addSmurf from '../actions/SmurfActions';
 
 
 //Data format to post smurf --> initial state/data
@@ -44,27 +46,27 @@ const SmurfForm = (props) => {
         <div>
             <h1>Smurf Form Component --> add smurf</h1>
             {/* add 'handleOnSubmit' to 'form' */}
-            <form>
+            <form onSubmit={handleOnSubmit}>
                 <input
                     type='text'
                     placeholder='Name'
                     name='name'
                 // value={}
-                // onChange={handleInputChange}
+                onChange={handleInputChange}
                 />
                 <input
                     type='text'
                     placeholder='Age'
                     name='age'
                 // value={}
-                // onChange={handleInputChange}
+                onChange={handleInputChange}
                 />
                 <input
                     type='text'
                     placeholder='Height'
                     name='height'
                 //value={}
-                //onChange={handleInputChange}
+                onChange={handleInputChange}
                 />
                 <button>Add smurf</button>
             </form>
@@ -73,5 +75,5 @@ const SmurfForm = (props) => {
 }
 
 //set up 'connect' --> and import 'addSmurf' from actions
-export default SmurfForm;
+export default connect(null, {addSmurf})(SmurfForm);
 

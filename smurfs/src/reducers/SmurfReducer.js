@@ -42,7 +42,22 @@ const SmurfReducer = (state = initialState, action) => {
         case ADD_SMURF_START:
             return{
                 ...state,
-                
+                isFetching: true,
+                error: '',
+                smurfs: null
+            }
+        case ADD_SMURF_SUCCESS:
+            return{
+                ...state,
+                isFetching: false,
+                error: '',
+                smurfs: action.payload
+            }
+        case ADD_SMURF_FAILURE:
+            return{
+                ...state,
+                isFetching: false,
+                error: action.payload
             }
 
 
