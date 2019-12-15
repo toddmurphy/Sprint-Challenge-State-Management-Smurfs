@@ -9,7 +9,7 @@ export const FETCH_SMURF_FAILURE = 'FETCH_SMURF_FAILURE';
 //Action Creators (async action creator) -->  go here ↓
 // get smurf data from localhost api --> http://localhost:3333/smurfs
 
-const getSmurfData = () => dispatch => {
+export const getSmurfData = () => dispatch => {
     // console.log('in getSmurf data')
     dispatch({type: FETCH_SMURF_START});
     axios.get('http://localhost:3333/smurfs')
@@ -22,7 +22,7 @@ const getSmurfData = () => dispatch => {
         })
 };
 
-export default getSmurfData;
+
 
 
  //add 'addSmurf' action to post new smurf here ↓

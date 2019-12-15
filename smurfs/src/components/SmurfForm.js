@@ -4,7 +4,7 @@ import styled from 'styled-components';
 //connect
 import {connect} from 'react-redux';
 // {addSmurf} from actions
-import {addSmurf} from '../actions/SmurfActions';
+import {addSmurf} from '../actions/index';
 
 
 //Data format to post smurf --> initial state/data
@@ -42,7 +42,7 @@ const SmurfForm = (props) => {
     let [newSmurf, setNewSmurf] = useState({
         name: '',
         age: '',
-        height: ''
+        height: '',
     })
 
 
@@ -76,18 +76,21 @@ const SmurfForm = (props) => {
                     type='text'
                     placeholder='Name'
                     name='name'
+                    value={newSmurf.name}
                 onChange={handleInputChange}
                 />
                 <TextInput
                     type='text'
                     placeholder='Age'
                     name='age'
+                    value={newSmurf.age}
                 onChange={handleInputChange}
                 />
                 <TextInput
                     type='text'
                     placeholder='Height'
                     name='height'
+                    value={newSmurf.height}
                 onChange={handleInputChange}
                 />
                 <ButtonStyle onClick={() => console.log('Add Smurf Button submit click')}  type='submit'>Add smurf</ButtonStyle>

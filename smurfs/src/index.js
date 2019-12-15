@@ -7,11 +7,11 @@ import "./index.css";
 import App from "./components/App";
 
 //import --> 'SmurfReducer'
-import SmurfReducer from './reducers/SmurfReducer';
+import rootReducer from './reducers/index';
 
 
 //Step 1: Create the store and add 'SmurfReducer' and 'applyMiddleWare(thunk)'
-const store = createStore(SmurfReducer, applyMiddleware(thunk));
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 
 ReactDOM.render(

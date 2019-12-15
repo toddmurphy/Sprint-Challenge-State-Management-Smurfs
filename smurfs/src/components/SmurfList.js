@@ -5,15 +5,16 @@ import Loader from 'react-loader-spinner';
 
 
 //need to import --> 'getSmurfData' from actions for smurf api data
-import getSmurfData from '../actions/SmurfActions';
-import addSmurf from '../actions/SmurfActions';
+import {getSmurfData, addSmurf} from '../actions/index';
+
 
 const SmurfList = (props) => {
-    // console.log('in SmurfList', props)
+    console.log('in SmurfList', props)
     //setup 'useEffect' to get initial load of state/data
+    
     useEffect(() => {
         props.getSmurfData();
-    }, [props])
+    }, [getSmurfData])
 
 
     return (

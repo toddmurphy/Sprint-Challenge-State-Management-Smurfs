@@ -1,11 +1,11 @@
 //import action types from 'SmurfActions'
 import {FETCH_SMURF_START, 
     FETCH_SMURF_SUCCESS, 
-    FETCH_SMURF_FAILURE} from '../actions/SmurfActions';
+    FETCH_SMURF_FAILURE} from '../actions';
 
 import {ADD_SMURF_START, 
     ADD_SMURF_SUCCESS, 
-    ADD_SMURF_FAILURE} from '../actions/SmurfActions'
+    ADD_SMURF_FAILURE} from '../actions'
 
 //setup 'initialState'
 const initialState = {
@@ -15,7 +15,7 @@ const initialState = {
     smurfs: []
 }
 
-const SmurfReducer = (state = initialState, action) => {
+const rootReducer = (state = initialState, action) => {
     switch(action.type) {
         case FETCH_SMURF_START:
             return{
@@ -65,4 +65,4 @@ const SmurfReducer = (state = initialState, action) => {
     }
 }
 
-export default SmurfReducer;
+export default rootReducer;
